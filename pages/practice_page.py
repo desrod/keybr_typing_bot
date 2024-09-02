@@ -13,7 +13,7 @@ class PracticePage:
         self._driver = driver
 
     def find_text_input_items(self):
-        elements = self._driver.find_elements_by_class_name(pc.TEXT_INPUT_ITEM)
+        elements = self._driver.find_elements(By.CLASS_NAME, pc.TEXT_INPUT_ITEM)
         return elements
 
     def close_popup_window(self):
@@ -28,9 +28,9 @@ class PracticePage:
             print('Closed pop-up window!')
 
     def click_to_activate(self):
-        self._driver.find_element_by_xpath(pc.CLICK_TO_PRACTICE).click()
+        self._driver.find_element(By.XPATH, pc.CLICK_TO_PRACTICE).click()
         print('Practice field activated!')
 
     def go_to_settings(self):
-        self._driver.find_element_by_xpath(pc.SETTINGS_BUTTON).click()
+        self._driver.find_element(By.XPATH, pc.SETTINGS_BUTTON).click()
         print('Went to Settings!')

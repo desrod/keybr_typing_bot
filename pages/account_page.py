@@ -1,3 +1,5 @@
+from selenium.webdriver.common.by import By
+
 from constants import account_constants as ac
 
 
@@ -7,5 +9,5 @@ class AccountPage:
         self._driver = driver
 
     def click_practice(self):
-        self._driver.find_element_by_xpath(ac.PRACTICE_BUTTON).click()
+        self._driver.find_element(By.XPATH, ac.PRACTICE_BUTTON).click()
         print('Went to Practice!')
