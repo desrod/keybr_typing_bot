@@ -1,7 +1,7 @@
 # xpaths:
-SETTINGS_BUTTON = '/html/body/div/main/div/section/div[1]/button[6]'
-CLICK_TO_PRACTICE = '/html/body/div/main/div/section/div[3]/div/div[3]'
+SETTINGS_BUTTON   = '/html/body/main/section/div[4]/button[5]'
+CLICK_TO_PRACTICE = '/html/body/nav/div/div[3]/a/span'
 
 # classes:
-TEXT_INPUT_ITEM = 'TextInput-item'
-CLOSE_POPUP = 'Tour-close'
+TEXT_INPUT_ITEM   = 'Af9rzrfBct'
+CLOSE_POPUP       = 'Tour-close'

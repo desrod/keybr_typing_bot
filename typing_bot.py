@@ -1,6 +1,8 @@
 import time
 
+from selenium import webdriver
 from selenium.webdriver import Firefox
+from selenium.webdriver.firefox.service import Service
 
 from constants import timers, urls
 from keypress_emulator import Keyboard
@@ -11,7 +13,8 @@ from pages.settings_page import SettingsPage
 
 class TypingBot:
     def __init__(self):
-        self._driver = Firefox(executable_path=urls.FIREFOX_EXE_PATH)
+        service = Service(executable_path=urls.FIREFOX_EXE_PATH)
+        self._driver = webdriver.Firefox(service=service)
         self._setup_driver()
         self._account = AccountPage(self._driver)
         self._practice = PracticePage(self._driver)
@@ -24,16 +27,16 @@ class TypingBot:
 
     def login(self):
         self._driver.get(urls.LOGGED_IN_URL)
-        print('Logged In!')
+        print("Logged In!")
 
     def go_to_practice(self):
         self._account.click_practice()
-        self._practice.close_popup_window()
+        # self._practice.close_popup_window()
 
     def change_settings(self):
         self._practice.go_to_settings()
-        self._settings.extend_alphabet()
-        self._settings.extend_lesson_length()
+        # self._settings.extend_alphabet()
+        # self._settings.extend_lesson_length()
         self._settings.enable_capital_letters()
         self._settings.enable_punctuation_characters()
         self._settings.save_settings()
@@ -49,6 +52,6 @@ class TypingBot:
 
     def _get_text_input_items(self):
         input_items = self._practice.find_text_input_items()
-        input_items_text = [' ' if item.text == '␣' else item.text for item in input_items]
-        input_text = ''.join(input_items_text)
+        input_items_text = [ " " if item.text == "␣" else item.text for item in input_items ]
+        input_text = "".join(input_items_text)
         return input_text
